@@ -24,10 +24,10 @@ def VM_start():
                 x, y = pyautogui.locateCenterOnScreen('VMBOT//img//support_me.png')
                 pyautogui.moveTo(x,y,duration=0.5)
                 pyautogui.click()
-        if loading_linear_times('cross',5,2,8):
-            x, y = pyautogui.locateCenterOnScreen('VMBOT//img//cross.png')
-            pyautogui.moveTo(x,y,duration=0.5)
-            pyautogui.click()
+        # if loading_linear_times('cross',5,2,8):
+        #     x, y = pyautogui.locateCenterOnScreen('VMBOT//img//cross.png')
+        #     pyautogui.moveTo(x,y,duration=0.5)
+        #     pyautogui.click()
         if loading_linear("brave_logo", 2, 1):
             x, y = pyautogui.locateCenterOnScreen('VMBOT//img//brave_logo.png')
             pyautogui.moveTo(x,y+100,duration=1) # перемещение под лого Brave

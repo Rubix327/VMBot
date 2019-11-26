@@ -12,7 +12,7 @@ y = ""
 number = int(input('\nВведите начальный номер ВМ: '))
 N = int(input('\nСколько машин хотите создать?\n\
 Доступные количества: [1-10], 20, 30..: '))
-alphabet = ['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y']
+alphabet = ['Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y']
 VPN = []
 active = True
  
@@ -43,7 +43,7 @@ for vpn in VPN:
     i = 0
     timenow = datetime.datetime.now()
     print("\n" + timenow.strftime("[%H:%M:%S]"), "Подключение сервера VPN " + str(vpn))
-    VPN_start(vpn)
+    #VPN_start(vpn)
 
     while i < M:
         timenow = datetime.datetime.now()
