@@ -1,3 +1,10 @@
+# VMBot v4.0
+-
+- **The bot now works almost without pictures, in coordinates.**
+- **The code was significantly compressed and transferred to a single file.**
+- **Files differ only in the resolution of the screen on which the bot works.**
+- **Added logs.**
+
 # VMBot v2.0
 The bot that is automating the process of creating the virtial machines and downloading the browser through it.
 
