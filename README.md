@@ -1,12 +1,17 @@
 # VMBot v4.0
--
-- **The bot now works almost without pictures, in coordinates.**
-- **The code was significantly compressed and transferred to a single file.**
-- **Files differ only in the resolution of the screen on which the bot works.**
-- **Added logs.**
+
+**Changes from version 3.0**:
+- The bot now works almost without pictures, in coordinates.
+- The code was significantly compressed and transferred to a single file.
+- Files differ only in the resolution of the screen on which the bot works.
+- Added logs.
+
+# VMBOT v3.0
+
+Significant changes. Version 3.0 will not be posted. The next version will be introduced as 4.0.
 
 # VMBot v2.0
--
+
 The bot that is automating the process of creating the virtial machines and downloading the browser through it.
 
 Generally, the majority of the work the bot do is moving the cursor, clicking, scrolling and waiting for the appearence of the picture on the screen, on which it relies when working. These actions are available to be used by the PyAutoGUI framework.
