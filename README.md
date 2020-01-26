@@ -6,6 +6,7 @@
 - **Added logs.**
 
 # VMBot v2.0
+-
 The bot that is automating the process of creating the virtial machines and downloading the browser through it.
 
 Generally, the majority of the work the bot do is moving the cursor, clicking, scrolling and waiting for the appearence of the picture on the screen, on which it relies when working. These actions are available to be used by the PyAutoGUI framework.
