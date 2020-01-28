@@ -1,3 +1,9 @@
+# VMBot v4.1
+
+- Added fully customizable file for the 1920x1080 pixels resolution
+- Added screenshot logs
+- Text logs were changed a bit
+
 # VMBot v4.0
 
 **Changes from version 3.0**:

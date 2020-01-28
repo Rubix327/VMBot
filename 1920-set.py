@@ -14,40 +14,45 @@ timeWaitToClone = 30                                # время ожидани�
 timeWaitToStart = 90                                # время ожидания от запуска ВМ до загрузки браузера UR, сек
 timeWaitToTabLoad = 5                               # время ожидания загрузки вкладки браузера, сек
 timeWaitToInstall = 420                             # время ожидания загрузки и установки браузера Brave, сек
+amountToCreate = 8                                  # сколько машин создавать на 1 аккаунт Brave
+createdTimes = 6                                    # сколько машин уже создано на первом аккаунте
 
 ###### SETTINGS ######
 
-def logger(status):
+def logger(status, noDate=False):
     """Записывает в файл указанную информацию"""
-    timenow = datetime.datetime.now()
-    message = timenow.strftime("[%d.%m.%Y %H:%M:%S]") + ' ' + status
-    with open(path + '/VMBOT v4.0/logs.txt', 'a') as file:
-        file.write(message)
+    if noDate:
+        with open(path + '/VMBOT v4.0/logs.txt', 'a') as file:
+            file.write(status)
+    else:
+        timenow = datetime.datetime.now()
+        timeformatted = timenow.strftime("[%d.%m.%Y %H-%M-%S]")
+        message = timeformatted + ' ' + status
+        pyautogui.screenshot(f'{path}/VMBOT v4.0/screen_logs/{timeformatted}.png')
+        with open(path + '/VMBOT v4.0/logs.txt', 'a') as file:
+            file.write(message)
 
 def scroller(times):
     """Прокручивает вниз указанное количество раз"""
     for i in range(times):
         pyautogui.scroll(-1000)
         i += 1
-    # j = 0
-    # while j < times:
-    #     pyautogui.scroll(-1000)
-    #     j += 1
 
 def loading_linear(obj, xtime, secondtime):
     """Ищет объект несколько раз в течение указанного времени"""
     counter = 0
-    print(obj + ': Тест №0')
+    logger(f'Объект {obj}: Тест №0')
     while counter < 5:
         objLoc = pyautogui.locateOnScreen(path + '/VMBOT v4.0/img/' + obj + '.png')
         if isinstance(objLoc, tuple):
             return 1
         else:
-            print(obj + ': Тест №' + str(counter+1))
+            logger(f', №{counter+1}', noDate=True)
             counter += 1
             time.sleep(xtime)
             xtime = secondtime # xtime, secondtime, secondtime, ...
-    print("Объект " + obj + " не обнаружен. Завершение поиска... ")
+    logger(f'\n', noDate=True)
+    logger(f'Объект {obj} не обнаружен. Завершение поиска...\n')
     return 0
 
 referralCodes = []
@@ -56,7 +61,6 @@ amount = int(input('\nСколько машин хотите создать? '))
 beginNumber = int(input('Какой первый номер машины? '))
 city = input('\nКакой город используется в ВПН? ')
 counterDecade = 0
-createdTimes = 0
 
 active = True
 while active:
@@ -146,9 +150,11 @@ while amount > 0:
         pyautogui.moveTo(1013, 535, duration=1)
         pyautogui.click()
 
-    time.sleep(timeWaitToInstall) # ожидание скачивания и установки
+    time.sleep(10)
 
     logger('VM #' + str(beginNumber) + ' - File opened. Waiting for installing...\n')
+
+    time.sleep(380) # ожидание скачивания и установки
 
     if loading_linear('installed', 5, 3):
         pyautogui.moveTo(1291, 250, duration=1)
@@ -187,7 +193,7 @@ while amount > 0:
     amount -= 1
     createdTimes += 1
 
-    if createdTimes > 9:
+    if createdTimes > amountToCreate-1:
         createdTimes = 0
         counterDecade += 1
         w += 52
